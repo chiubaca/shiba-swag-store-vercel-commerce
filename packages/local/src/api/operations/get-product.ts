@@ -18,7 +18,7 @@ export default function getProductOperation(_p: OperationContext<any>) {
   } = {}): Promise<Product | {} | any> {
     const data = await fetcher({})
     return {
-      product: data.products.find(({ slug }) => slug === variables!.slug),
+      product: data.products.find(({ slug }: any) => slug === variables!.slug),
     }
   }
 

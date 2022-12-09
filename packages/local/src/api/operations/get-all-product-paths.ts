@@ -10,7 +10,7 @@ export default function getAllProductPathsOperation() {
     const data = await fetcher({})
 
     return Promise.resolve({
-      products: data.products.map(({ path }) => ({ path })),
+      products: data.products.map(({ path }: any) => ({ path })),
     })
   }
 
