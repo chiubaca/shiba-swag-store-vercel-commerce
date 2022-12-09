@@ -25,7 +25,7 @@ const query = `
     "width": 300,
     "height": 300
   },
-  'options': options,
+  'options': [],
   'variants': [],
 }}
 `
