@@ -2,7 +2,9 @@ import { Product } from '@vercel/commerce/types/product'
 import { GetAllProductsOperation } from '@vercel/commerce/types/product'
 import type { OperationContext } from '@vercel/commerce/api/operations'
 import type { LocalConfig, Provider } from '../index'
-import data from '../../data.json'
+// import data from '../../data.json'
+
+import { fetcher } from '../../fetcher'
 
 export default function getAllProductsOperation({
   commerce,
@@ -17,6 +19,8 @@ export default function getAllProductsOperation({
     config?: Partial<LocalConfig>
     preview?: boolean
   } = {}): Promise<{ products: Product[] | any[] }> {
+    const data = await fetcher({})
+
     return {
       products: data.products,
     }
