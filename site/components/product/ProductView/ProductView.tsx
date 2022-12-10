@@ -3,6 +3,7 @@ import Image from 'next/image'
 import s from './ProductView.module.css'
 import { FC } from 'react'
 import type { Product } from '@commerce/types/product'
+import type { ShibaProduct } from '../types'
 import usePrice from '@framework/product/use-price'
 import { WishlistButton } from '@components/wishlist'
 import { ProductSlider, ProductCard } from '@components/product'
@@ -11,7 +12,7 @@ import { SEO } from '@components/common'
 import ProductSidebar from '../ProductSidebar'
 import ProductTag from '../ProductTag'
 interface ProductViewProps {
-  product: Product
+  product: ShibaProduct
   relatedProducts: Product[]
 }
 
