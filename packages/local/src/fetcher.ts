@@ -7,7 +7,7 @@ const client = sanityClient({
   dataset: 'production',
   apiVersion: '2022-12-06', // use current UTC date - see "specifying API version"!
   // token: 'sanity-auth-token', // or leave blank for unauthenticated usage
-  useCdn: true, // `false` if you want to ensure fresh data
+  useCdn: false, // `false` if you want to ensure fresh data
 })
 
 const query = `
@@ -25,9 +25,17 @@ const query = `
     "width": 300,
     "height": 300
   },
-  'options': [],
   'variants': [],
-}}
+  'options': options[]{
+    'id':  'option-' + displayName,
+    displayName,
+    'values': values[]{
+      'label': label,
+      'link': amazonUrl,
+      }
+    }
+  }
+}
 `
 
 // export const fetcher: Fetcher = async () => {
@@ -43,6 +51,7 @@ const query = `
 export const fetcher: Fetcher = async () => {
   try {
     const data = await client.fetch(query)
+    console.log(JSON.stringify(data))
     return data
   } catch (error) {
     throw new Error(' couldnt get data from cms')

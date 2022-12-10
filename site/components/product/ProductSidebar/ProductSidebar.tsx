@@ -2,7 +2,6 @@ import s from './ProductSidebar.module.css'
 import { useAddItem } from '@framework/cart'
 import { FC, useEffect, useState } from 'react'
 import { ProductOptions } from '@components/product'
-import type { Product } from '@commerce/types/product'
 import { Button, Text, Rating, Collapse, useUI } from '@components/ui'
 import {
   getProductVariant,
@@ -10,9 +9,11 @@ import {
   SelectedOptions,
 } from '../helpers'
 import ErrorMessage from '@components/ui/ErrorMessage'
+import type { ShibaProduct } from '../types'
+import { ExternalLink } from '@components/icons'
 
 interface ProductSidebarProps {
-  product: Product
+  product: ShibaProduct
   className?: string
 }
 
@@ -84,11 +85,26 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
         )}
       </div>
       <div className="mt-6">
-        <Collapse title="Care">
+        {/* <Collapse title="Care">
           This is a limited edition production run. Printing starts when the
           drop ends.
-        </Collapse>
+        </Collapse> */}
         <Collapse title="Details">{product.description}</Collapse>
+
+        <Button className="mt-6">
+          <a
+            href={
+              selectedOptions?.link
+                ? selectedOptions.link
+                : product.options[0].values[0].link
+            }
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2"
+          >
+            Buy on Amazon <ExternalLink />
+          </a>
+        </Button>
       </div>
     </div>
   )

@@ -76,6 +76,7 @@ export default {
       name: 'options',
       type: 'array',
       of: [option],
+      validation: () => [(R: Rule) => R.required()],
     },
   ],
 }

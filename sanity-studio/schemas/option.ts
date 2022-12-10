@@ -4,7 +4,7 @@ export default {
   title: 'Option',
   name: 'option',
   type: 'object',
-
+  validation: () => [(R: Rule) => R.required()],
   fields: [
     {
       name: 'displayName',
@@ -16,32 +16,34 @@ export default {
       title: 'Values',
       name: 'values',
       type: 'array',
-      validation: () => [(R: Rule) => R.required()],
+
       of: [
         {
-          title: 'Label',
-          name: 'label',
-          type: 'string',
-          validation: () => [(R: Rule) => R.required()],
-        },
-        {
-          title: 'Hex Color',
-          name: 'hexColor',
-          type: 'string',
+          title: 'Value',
+          name: 'value',
+          type: 'object',
+
+          fields: [
+            {
+              title: 'Label',
+              name: 'label',
+              type: 'string',
+              validation: () => [(R: Rule) => R.required()],
+            },
+            {
+              title: 'Amazon URL',
+              name: 'amazonUrl',
+              type: 'url',
+              validation: () => [(R: Rule) => R.required()],
+            },
+            {
+              title: 'Hex Color',
+              name: 'hexColor',
+              type: 'color',
+            },
+          ],
         },
       ],
-      // validation: (Rule: Rule) => [
-      //   Rule.custom((content) => {
-      //     console.log('🚀 ~ file: option.ts:37 ~ Rule.custom ~ content', content)
-      //     if (!content) {
-      //       console.log('🚀 ~ file: option.ts:39 ~ Rule.custom ~ undefined')
-      //       Rule.warning('Values must be set when adding in an option')
-      //       return false
-      //     }
-
-      //     return true
-      //   }),
-      // ],
     },
   ],
 }

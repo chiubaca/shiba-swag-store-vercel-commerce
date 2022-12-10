@@ -1,10 +1,10 @@
 import { memo } from 'react'
 import { Swatch } from '@components/product'
-import type { ProductOption } from '@commerce/types/product'
 import { SelectedOptions } from '../helpers'
+import type { ShibaOptions } from '../types'
 
 interface ProductOptionsProps {
-  options: ProductOption[]
+  options: ShibaOptions[]
   selectedOptions: SelectedOptions
   setSelectedOptions: React.Dispatch<React.SetStateAction<SelectedOptions>>
 }
@@ -36,6 +36,7 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
                       return {
                         ...selectedOptions,
                         [opt.displayName.toLowerCase()]: v.label.toLowerCase(),
+                        link: v.link,
                       }
                     })
                   }}
