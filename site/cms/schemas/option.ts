@@ -1,4 +1,5 @@
-import {Rule} from 'sanity'
+/* eslint-disable import/no-anonymous-default-export */
+import { Rule } from 'sanity'
 
 export default {
   title: 'Option',

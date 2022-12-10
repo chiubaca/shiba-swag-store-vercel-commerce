@@ -1,4 +1,5 @@
-import {Rule, Source} from 'sanity'
+/* eslint-disable import/no-anonymous-default-export */
+import { Rule, Source } from 'sanity'
 import option from './option'
 
 export default {
@@ -16,7 +17,7 @@ export default {
       name: 'slug',
       type: 'slug',
       options: {
-        source: (_, context: any) => context.parent.name,
+        source: (_: any, context: any) => context.parent.name,
       },
     },
     {
@@ -43,8 +44,8 @@ export default {
           validation: () => [(R: Rule) => R.required()],
           options: {
             list: [
-              {title: 'GBP', value: 'GBP'},
-              {title: 'USD', value: 'USD'},
+              { title: 'GBP', value: 'GBP' },
+              { title: 'USD', value: 'USD' },
             ],
             layout: 'radio', // <-- defaults to 'dropdown'
           },
