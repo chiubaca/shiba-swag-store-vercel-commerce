@@ -62,7 +62,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
         <div className="pt-6 pb-10 flex flex-col md:flex-row justify-between items-center space-y-4 text-accent-6 text-sm">
           <div className="flex flex-col  items-center gap-5 md:flex-row md:justify-between md:min-w-full">
             <span>&copy; 2022 Shiba Swag Store, Inc. All rights reserved.</span>
-            {/* <ThemeSwitcher /> */}
+            <ThemeSwitcher />
           </div>
         </div>
       </Container>
