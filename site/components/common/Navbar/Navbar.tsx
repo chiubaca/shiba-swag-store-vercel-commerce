@@ -16,15 +16,16 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = ({ links }) => (
   <NavbarRoot>
-    <Container clean className="mx-auto max-w-8xl px-6">
+    <Container clean className="mx-auto max-w-8xl px-6 bg-transparent">
       <div className={s.nav}>
-        <div className="flex items-center flex-1">
+        <div className="flex items-center  bg-transparent">
           <Link href="/">
-            <a className={s.logo} aria-label="Logo">
+            <a className={`${s.logo}`} aria-label="Logo">
               <Logo />
             </a>
           </Link>
-          <nav className={s.navMenu}>
+
+          {/* <nav className={s.navMenu}>
             <Link href="/search">
               <a className={s.link}>All</a>
             </Link>
@@ -33,7 +34,7 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
                 <a className={s.link}>{l.label}</a>
               </Link>
             ))}
-          </nav>
+          </nav> */}
         </div>
         {process.env.COMMERCE_SEARCH_ENABLED && (
           <div className="justify-center flex-1 hidden lg:flex">
@@ -41,7 +42,7 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
           </div>
         )}
         <div className="flex items-center justify-end flex-1 space-x-8">
-          <UserNav />
+          {/* <UserNav /> */}
         </div>
       </div>
       {process.env.COMMERCE_SEARCH_ENABLED && (

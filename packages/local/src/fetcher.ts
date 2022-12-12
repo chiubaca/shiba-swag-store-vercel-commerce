@@ -20,7 +20,7 @@ const query = `
   'description' : description,
   'price': price,
   'images': images[].asset->{
-    'url': url +'?h=300&w=300&fit=fillmax&crop=center',
+    'url': url +'?h=1000&w=1000&fit=fillmax&crop=center',
     'altText' : image.altText,
     "width": 300,
     "height": 300

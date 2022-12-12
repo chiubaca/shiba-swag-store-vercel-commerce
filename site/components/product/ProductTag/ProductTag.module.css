@@ -17,6 +17,7 @@
   letter-spacing: inherit;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+  text-transform: lowercase;
 }
 
 .root .name span.fontsizing {
