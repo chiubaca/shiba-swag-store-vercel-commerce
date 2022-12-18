@@ -27,6 +27,36 @@ export default {
       type: 'string',
       title: 'Description',
     },
+
+    {
+      title: 'Rating',
+      name: 'rating',
+      type: 'object',
+      fields: [
+        {
+          name: 'score',
+          type: 'number',
+          title: 'score',
+          initialValue: 0,
+          description:
+            'Provide a product rating between 1-5. If left blank or 0 means the product has no reviews yet',
+          validation: () => (R: Rule) => R.min(0).max(5).integer(),
+          options: {
+            list: [0, 1, 2, 3, 4, 5],
+            layout: 'radio',
+            direction: 'horizontal',
+          },
+        },
+        {
+          name: 'count',
+          type: 'number',
+          title: 'Rating count',
+          initialValue: 0,
+          description: 'Number of Amazon ratings for this product',
+          validation: () => (R: Rule) => R.min(0).integer(),
+        },
+      ],
+    },
     price,
     {
       title: 'Images',
@@ -47,7 +77,6 @@ export default {
         },
       ],
     },
-
     {
       title: 'Options',
       name: 'options',

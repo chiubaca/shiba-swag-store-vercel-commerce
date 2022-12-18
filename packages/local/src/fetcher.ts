@@ -18,6 +18,8 @@ const query = `
   'path' : "/" + slug.current,
   'slug' : slug.current,
   'description' : description,
+  'ratingScore': rating.score,
+  'ratingCount': rating.count,
   'price': price,
   'images': images[].asset->{
     'url': url +'?h=1000&w=1000&fit=fillmax&crop=center',

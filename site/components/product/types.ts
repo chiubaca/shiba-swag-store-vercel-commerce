@@ -14,5 +14,7 @@ export interface ShibaOptions extends ProductOption {
 }
 
 export interface ShibaProduct extends Product {
+  ratingCount: number
+  ratingScore: number
   options: ShibaOptions[]
 }

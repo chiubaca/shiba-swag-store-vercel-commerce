@@ -69,10 +69,16 @@ const ProductSidebar: FC<ProductSidebarProps> = ({
         className="pb-4 break-words w-full max-w-xl"
         html={product.descriptionHtml || product.description}
       />
+
       <div className="flex flex-row justify-between items-center">
-        <Rating value={4} />
-        <div className="text-accent-6 pr-1 font-medium text-sm">36 reviews</div>
+        <Rating value={product.ratingScore} />
+        <div className="text-accent-6 pr-1 font-medium text-sm">
+          {product.ratingCount
+            ? `${product.ratingCount} reviews`
+            : `No reviews yet`}
+        </div>
       </div>
+
       <div>
         {error && <ErrorMessage error={error} className="my-5" />}
         {process.env.COMMERCE_CART_ENABLED && (
