@@ -1,5 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { Rule } from 'sanity'
+import price from './price'
 
 export default {
   title: 'Option',
@@ -30,6 +31,9 @@ export default {
               name: 'label',
               type: 'string',
               validation: () => [(R: Rule) => R.required()],
+            },
+            {
+              ...price,
             },
             {
               title: 'Amazon URL',

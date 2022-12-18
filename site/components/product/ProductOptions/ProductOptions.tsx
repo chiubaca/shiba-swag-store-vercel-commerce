@@ -37,6 +37,7 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
                         ...selectedOptions,
                         [opt.displayName.toLowerCase()]: v.label.toLowerCase(),
                         link: v.link,
+                        price: v.price,
                       }
                     })
                   }}

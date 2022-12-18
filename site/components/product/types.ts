@@ -6,6 +6,7 @@ import type {
 
 interface ShibaProductOptionValues extends ProductOptionValues {
   link: string
+  price: number
 }
 
 export interface ShibaOptions extends ProductOption {

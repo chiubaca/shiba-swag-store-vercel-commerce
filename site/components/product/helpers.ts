@@ -1,5 +1,5 @@
 import type { Product } from '@commerce/types/product'
-export type SelectedOptions = Record<string, string | null>
+export type SelectedOptions = Record<string, any | null>
 import { Dispatch, SetStateAction } from 'react'
 
 export function getProductVariant(product: Product, opts: SelectedOptions) {

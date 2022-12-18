@@ -32,6 +32,7 @@ const query = `
     'values': values[]{
       'label': label,
       'link': amazonUrl,
+      'price': price.value
       }
     }
   }

@@ -1,8 +1,8 @@
 import s from './ProductSidebar.module.css'
 import { useAddItem } from '@framework/cart'
-import { FC, useEffect, useState } from 'react'
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { ProductOptions } from '@components/product'
-import { Button, Text, Rating, Collapse, useUI } from '@components/ui'
+import { Button, Text, Rating, useUI } from '@components/ui'
 import {
   getProductVariant,
   selectDefaultOptionFromProduct,
@@ -15,18 +15,26 @@ import { ExternalLink } from '@components/icons'
 interface ProductSidebarProps {
   product: ShibaProduct
   className?: string
+  selectedOptions: SelectedOptions
+  setSelectedOptions: Dispatch<SetStateAction<SelectedOptions>>
 }
 
-const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
+const ProductSidebar: FC<ProductSidebarProps> = ({
+  product,
+  selectedOptions,
+  setSelectedOptions,
+  className,
+}) => {
   const addItem = useAddItem()
   const { openSidebar, setSidebarView } = useUI()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<null | Error>(null)
-  const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
+
+  // const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
 
   useEffect(() => {
     selectDefaultOptionFromProduct(product, setSelectedOptions)
-  }, [product])
+  }, [product, setSelectedOptions])
 
   const variant = getProductVariant(product, selectedOptions)
   const addToCart = async () => {
@@ -89,7 +97,7 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }) => {
           This is a limited edition production run. Printing starts when the
           drop ends.
         </Collapse> */}
-        <Collapse title="Details">{product.description}</Collapse>
+        {/* <Collapse title="Details">{product.description}</Collapse> */}
 
         <Button className="mt-6">
           <a
