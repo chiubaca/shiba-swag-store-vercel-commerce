@@ -17,6 +17,7 @@ const Head: VFC = () => {
         src="https://cdn.counter.dev/script.js"
         data-id="91ee2db8-dc88-40a2-9529-ef18149e911b"
         data-utcoffset="0"
+        strategy="afterInteractive"
       ></Script>
     </>
   )
