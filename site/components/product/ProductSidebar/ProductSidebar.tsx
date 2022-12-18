@@ -30,8 +30,6 @@ const ProductSidebar: FC<ProductSidebarProps> = ({
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<null | Error>(null)
 
-  // const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
-
   useEffect(() => {
     selectDefaultOptionFromProduct(product, setSelectedOptions)
   }, [product, setSelectedOptions])
@@ -99,20 +97,22 @@ const ProductSidebar: FC<ProductSidebarProps> = ({
         </Collapse> */}
         {/* <Collapse title="Details">{product.description}</Collapse> */}
 
-        <Button className="mt-6">
-          <a
-            href={
-              selectedOptions?.link
-                ? selectedOptions.link
-                : product.options[0].values[0].link
-            }
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center gap-2"
-          >
-            Buy on Amazon <ExternalLink />
-          </a>
-        </Button>
+        {product.options[0] && (
+          <Button className="mt-6">
+            <a
+              href={
+                selectedOptions.link
+                  ? selectedOptions.link
+                  : product.options[0].values[0].link
+              }
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2"
+            >
+              Buy on Amazon <ExternalLink />
+            </a>
+          </Button>
+        )}
       </div>
     </div>
   )
