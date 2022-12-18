@@ -60,7 +60,7 @@ export default function Home({
       </Marquee>
       <Hero
         headline="Welcome to  Shiba Swag Store"
-        description="Shibe merch for practically everything. Enjoy your stay here :)"
+        description="Curated shiba merch for practically everything. Enjoy your stay here :)"
       />
       <Grid layout="B" variant="filled">
         {products.slice(0, 3).map((product: any, i: number) => (
